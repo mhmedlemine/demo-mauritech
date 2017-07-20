@@ -1,0 +1,75 @@
+
+<!-- MODALS -->
+<!-- Mod QUANTITE MODAL -->
+<div class="modal fade" id="modModal${boucle.index }" tabindex="-1"
+	role="dialog" aria-labelledby="ModifModalLabel" aria-hidden="true">
+
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="ModifModalLabel">Modifier Quantité</h4>
+			</div>
+			<div class="modal-body">
+				<form data-toggle="validator" role="form"
+					action="<%=request.getContextPath()%>/commande">
+					<div class="form-group">
+						<label for="">Quantité</label> <select class="form-control"
+							name="quantite">
+							<c:forEach var="i" begin="1"
+								end="${ligne.produit.quantiteDispo }">
+								<option ${i== ligne.quantite ? 'selected="selected"' : ''}>${i}</option>
+							</c:forEach>
+						</select>
+					</div>
+					<input type="hidden" value="${ligne.produit.idProduit}"
+						name="produit">
+					<input type="hidden" value="${ligne.commande.idCommande}"
+						name="commande">
+					<div class="form-group">
+						<input class="btn btn-success" type="submit" name="mod" value="Mettre à jour">
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+
+</div>
+<!-- /.Modifmodal -->
+
+<!-- Sup ITEM MODAL -->
+<div class="modal fade" id="supModal${boucle.index }" tabindex="-1"
+	role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+
+				<h4 class="modal-title" id="myModalLabel">Suppression</h4>
+			</div>
+
+			<div class="modal-body">Etes vous sure de vouloir suprimer cet
+				article de la commande ?</div>
+
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+				<a href="<%=request.getContextPath()%>/commande?remove=&produit=${ligne.produit.idProduit}&commande=${ligne.commande.idCommande}">
+					<button type="button" class="btn btn-danger">Supprimer</button>
+				</a>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modalConfSup -->
+
+
+
+

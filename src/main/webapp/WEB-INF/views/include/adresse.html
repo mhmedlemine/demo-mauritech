@@ -1,0 +1,131 @@
+<!-- MOD ADRESSE DEFAUT MODAL -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+	aria-labelledby="ModifModalLabel" aria-hidden="true">
+
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="ModifModalLabel">Modifier adresse</h4>
+			</div>
+			<div class="modal-body">
+				<form data-toggle="validator" role="form" action="" method="post">
+					<div class="form-group">
+						<label for="nom">Nom</label>
+						<input class="form-control" id="nom" name="nom" value="${defAdresse.nom }"/>
+					</div>
+					<div class="form-group">
+						<label for="prenom">Prenom</label>
+						<input class="form-control" id="prenom" name="prenom" value="${defAdresse.prenom }"/>
+					</div>
+					<div class="form-group">
+						<label for="telephone">Telephone</label>
+						<input class="form-control" id="telephone" name="telephone" value="${defAdresse.telephone }"/>
+					</div>
+					<div class="form-group">
+						<label for="ville">Ville</label>
+						<input class="form-control" id="ville" name="ville" value="${defAdresse.ville }"/>
+					</div>
+					<div class="form-group">
+						<label for="rue">Rue</label>
+						<input class="form-control" id="rue" name="rue" value="${defAdresse.rue }"/>
+					</div>
+					<input type="hidden" name="idAdresse" value="${defAdresse.idAdresse }"/>
+					<div class="form-group">
+						<input class="btn btn-success" name="modifier" type="submit" value="Enregister">
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+
+</div>
+<!-- /.Modifmodal -->
+
+<!-- MOD ADRESSE MODAL -->
+<div class="modal fade" id="myModal${boucle.index }" tabindex="-1" role="dialog"
+	aria-labelledby="ModifModalLabel" aria-hidden="true">
+
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="ModifModalLabel">Modifier adresse</h4>
+			</div>
+			<div class="modal-body">
+				<form data-toggle="validator" role="form" action="" method="post">
+					<div class="form-group">
+						<label for="nom">Nom</label>
+						<input class="form-control" id="nom" name="nom" value="${adr.nom }"/>
+					</div>
+					<div class="form-group">
+						<label for="prenom">Prenom</label>
+						<input class="form-control" id="prenom" name="prenom" value="${adr.prenom }"/>
+					</div>
+					<div class="form-group">
+						<label for="telephone">Telephone</label>
+						<input class="form-control" id="telephone" name="telephone" value="${adr.telephone }"/>
+					</div>
+					<div class="form-group">
+						<label for="ville">Ville</label>
+						<input class="form-control" id="ville" name="ville" value="${adr.ville }"/>
+					</div>
+					<div class="form-group">
+						<label for="rue">Rue</label>
+						<input class="form-control" id="rue" name="rue" value="${adr.rue }"/>
+					</div>
+					<div class="form-group">
+						<label for="defaut">Defaut ?</label>
+						<select class="form-control" id="defaut" name="defaut">
+							<option value="1" >Oui</option>
+							<option value="0" selected>Non</option>
+						</select>
+					</div>
+					
+					<input type="hidden" name="idAdresse" value="${adr.idAdresse }"/>
+					<div class="form-group">
+						<input class="btn btn-success" name="modifier" type="submit" value="Enregister">
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+
+</div>
+<!-- /.Modifmodal --> 
+
+<!-- Sup ITEM MODAL -->
+	<div class="modal fade" id="supModal${boucle.index }" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+
+					<h4 class="modal-title" id="myModalLabel">Suppression</h4>
+				</div>
+
+				<div class="modal-body">Etes vous sure de vouloir suprimer cette
+					adresse ?</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+					<a href="<%=request.getContextPath()%>/adresse?remove=&adresse=${adr.idAdresse }">
+						<button type="button" class="btn btn-danger">Supprimer</button>
+					</a>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modalConfSup -->
